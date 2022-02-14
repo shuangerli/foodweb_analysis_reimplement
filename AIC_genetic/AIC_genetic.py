@@ -111,6 +111,7 @@ def simulate_pop(pop, nt, N, S, M, k, MAX_GEN):
 	while cont:
 		gens += 1
 		pop = simulate_pop_one_gen(pop, nt, N, S, M, k)
+		print(gens)
 		neighbor_equal = [np.array_equal(pop[i], pop[i + 1]) for i in range(N - 1)]
 		if all(neighbor_equal) or gens > MAX_GEN:
 			cont = False
@@ -144,10 +145,10 @@ def main():
 	######################SCRATCH TESTS######################
 	TEST = True
 	if TEST:
-		N = 100
-		MIN_K = 1
-		MAX_K = 6
-		MAX_GEN = 1000
+		N = 10
+		MIN_K = 3
+		MAX_K = 10
+		MAX_GEN = 100
 		M = 3.
 
 	#########################################################
