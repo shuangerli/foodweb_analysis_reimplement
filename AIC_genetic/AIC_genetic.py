@@ -111,11 +111,11 @@ def simulate_pop(pop, nt, N, S, M, k, MAX_GEN):
 	while cont:
 		gens += 1
 		pop = simulate_pop_one_gen(pop, nt, N, S, M, k)
-		print(gens)
+		print(gens, flush = True)
 		neighbor_equal = [np.array_equal(pop[i], pop[i + 1]) for i in range(N - 1)]
 		if all(neighbor_equal) or gens > MAX_GEN:
 			cont = False
-			print(gens)
+			print(gens, flush = True)
 
 	score = calc_AIC(nt, pop[0], k, S)
 	grouping = pop[0]
@@ -146,8 +146,8 @@ def main():
 	TEST = True
 	if TEST:
 		N = 10
-		MIN_K = 3
-		MAX_K = 10
+		MIN_K = 11
+		MAX_K = 15
 		MAX_GEN = 100
 		M = 3.
 
@@ -167,7 +167,7 @@ def main():
 	for k in range(MIN_K, MAX_K + 1):
 		pop = initialize_pop(N, S, k)
 		best_score, best_group = simulate_pop(pop, nt, N, S, M, k, MAX_GEN)
-		print("k =", k, "AIC =", best_score, "grouping:", best_group)
+		print("k =", k, "AIC =", best_score, "grouping:", best_group, flush = True)
 		
 
 
