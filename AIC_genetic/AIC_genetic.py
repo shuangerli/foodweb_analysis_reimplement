@@ -134,10 +134,11 @@ def main():
 	MAX_K = 6       #maximum number of groups
 	S = 0 			#initialize num of nodes in the network
 
-	if len(sys.argv) > 1:
-		NETWORK_PATH = sys.argv[1]
-	else: 
-		NETWORK_PATH = "tests/adj_m_small.csv"
+	#if len(sys.argv) > 1:
+		#NETWORK_PATH = sys.argv[1]
+	#else: 
+		#NETWORK_PATH = "tests/adj_m_small.csv"
+	NETWORK_PATH = "private_matrix/adj_m_interaction_psy_recog_directed.csv"
 	BEST_SCORES = np.ones(MAX_K) * np.inf
 	BEST_GROUPING = []
 
@@ -145,14 +146,15 @@ def main():
 	######################SCRATCH TESTS######################
 	TEST = True
 	if TEST:
-		N = 10
-		MIN_K = 11
+		N = 20
+		MIN_K = 5
 		MAX_K = 15
 		MAX_GEN = 100
 		M = 3.
 
 	#########################################################
 
+	print("N = {}".format(N), flush = True)
 	np.random.seed(SEED)
 
 	#Read network
