@@ -134,11 +134,10 @@ def main():
 	MAX_K = 6       #maximum number of groups
 	S = 0 			#initialize num of nodes in the network
 
-	#if len(sys.argv) > 1:
-		#NETWORK_PATH = sys.argv[1]
-	#else: 
-		#NETWORK_PATH = "tests/adj_m_small.csv"
-	NETWORK_PATH = "private_matrix/adj_m_interaction_psy_recog_directed.csv"
+	if len(sys.argv) > 1:
+		NETWORK_PATH = sys.argv[1]
+	else: 
+		NETWORK_PATH = "tests/adj_m_small.csv"
 	BEST_SCORES = np.ones(MAX_K) * np.inf
 	BEST_GROUPING = []
 
